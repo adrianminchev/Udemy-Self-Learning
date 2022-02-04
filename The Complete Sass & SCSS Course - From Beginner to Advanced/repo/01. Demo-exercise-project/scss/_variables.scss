@@ -1,0 +1,54 @@
+// === Variable Partials ===
+
+// === COLORS SECTION ===
+$text-color: #222222;
+$theme-color: #170a48;
+$secondary-color: #f27731;
+$ternary-color: #ccf962;
+$link-color: $secondary-color;
+$menu-item-color: white;
+
+// === FONTS ===
+$text-font: Vedda,
+Arial,
+sans-serif;
+$header-font: Palatino,
+Georgia,
+serif;
+
+// === SIZES ===
+$content-width: 960px;
+$header-height: 60px;
+$footer-height: 90px;
+$col: col-width($columns: 8);
+
+// === THEME ====
+// Allowed values: Dark, Light, Default
+// $theme: Dark;
+@if $theme == Dark {
+    $body-background-color: #22222a;
+    $text-color: #222222;
+    $theme-color: #170a48;
+    $secondary-color: #f27731;
+    $ternary-color: #ccf962;
+    $link-color: $secondary-color;
+    $menu-item-color: white;
+}
+@else if ($theme == Light) {
+    $body-background-color: #fff;
+    $text-color: #222222;
+    $theme-color: #170a48;
+    $secondary-color: #f27731;
+    $ternary-color: #ccf962;
+    $link-color: $secondary-color;
+    $menu-item-color: white;
+}
+@else {
+    $body-background-color: #fff;
+    $text-color: #222222;
+    $theme-color: #170a48;
+    $secondary-color: #f27731;
+    $ternary-color: #ccf962;
+    $link-color: $secondary-color;
+    $menu-item-color: white;
+}

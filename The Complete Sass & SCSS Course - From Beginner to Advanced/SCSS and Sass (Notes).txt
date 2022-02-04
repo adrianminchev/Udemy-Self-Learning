@@ -1,0 +1,48 @@
+SCSS and Sass (Notes)
+
+1. Preprocessor - Step before CSS
+- language on top of CSS
+- powerful flexibility capabilities
+- we can use variables, nesting, mixins or automatic vendor prefixing
+- better code without the classical CSS repetability
+
+2. Differences between
+- Sass - Syntactically awesome style-sheets
+- original language
+- shorter syntax
+- example:
+.container {
+float: left;
+width: 100%;
+p {
+color: #333;
+ }
+}
+- SCSS - sassy CSS
+- newer syntax
+- closer to CSS
+- de-facto standard
+- example:
+.container {
+float: left
+width: 100%
+p
+ color: #333
+}
+
+When to use Varibles -> In order to avoid repetability
+- use it on top of code file
+- displays how the layers looks like
+- easy and understandable
+- easy to maintain in the long run
+
+What are Partials -> SCSS or Sass files that are not translated to CSS files
+- we can use them to define all our variables in one or more separate places
+- define a reset file that can be imported as the basis of the design
+- or to define SCSS code which should not be translated to a CSS file on its own
+- in order to create a partial add _ in front of the file name in the scss directory
+
+What are Mixins -> They allow us to create reusable piece of styling code
+- in order to create a mixin add @mixin in front of varible or selector that you would like to modify
+
+Media Queries -> Can be used nested on any level in the Sass implementation
