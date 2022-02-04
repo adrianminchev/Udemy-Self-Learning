@@ -1,0 +1,16 @@
+TypeScript (Notes)
+
+1. Types -> Easy way to refer to the different properties and functions that a value has
+- used by the Typescript compiler to analyze the code for errors
+- allow other team members to understand the value of the flowing around code
+2. Type Annotations -> Code that we add to tell Typescript what type of a value a variable refers to
+let count: number = 5;
+3. Type inference -> Typescript tries to figure out what type of value a variablerefers to
+let count = 5;
+4. Type annotations for function -> Adding code to help typescript along for the function itself.
+5. Type inference for function -> Figure out what type of value a function will return.
+6. Typed Arrays -> Where each element is some consistent type of value.
+7. Interfaces -> Create a new type, describing the property names and value types of an object
+8. Classes -> Blueprint to create an object with different fields and methods attached to itself
+9. Generics -> Allows us to define the type of a property value at a future point
+10. Decorators -> Used to modify different props/parts of a class
