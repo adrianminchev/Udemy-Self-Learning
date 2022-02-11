@@ -1,0 +1,30 @@
+import axios from "axios";
+import { call, fork, put, take } from "redux-saga/effects";
+import entriesTypes, {
+    populateEntries,
+    populateEntryDetails
+} from "../actions/entries.actions";
+
+const ENTRIES_URL = "http://localhost:3001/entries";
+const VALUES_URL = "http://localhost:3001/values";
+
+export function* getAllEntries() {
+  yield take(entriesTypes.GET_ENTRIES);
+
+  const { data } = yield call(axios, ENTRIES_URL);
+  yield put(populateEntries(data));
+}
+
+export function* getEntryDetails(id) {
+  const { data } = yield call(axios, VALUES_URL + `/${id}`);
+  yield put(populateEntryDetails(id, data));
+}
+
+export function* getAllEntriesDetails() {
+  const { payload } = yield take(entriesTypes.POPULATE_ENTRIES);
+
+  for (let index = 0; index < payload.length; index++) {
+    const entry = payload[index];
+    yield fork(getEntryDetails, entry.id);
+  }
+}
