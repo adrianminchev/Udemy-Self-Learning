@@ -1,0 +1,69 @@
+Test Driven Development (Notes)
+
+TDD Overview: 
+
+Why would you prefer TDD?
+- Most companies require TDD experience
+- TDD helps to produce clean-code as a side effect
+- Provides the ability to solve a problem in a systematic way
+
+TDD Technique
+- Write failing test
+- Write code to pass the failing test
+- Refactor (remove any duplications)
+
+The 3 laws of TDD
+- You are not allowed to write production code unless it is to make a failing unit test pass
+- You are not allowed to write any more of a unit test than is sufficient to fail; not compiling is failing
+- You are not allowed to write more production code than is sufficient to pass the one failing unit test
+
+Why we should fail first
+- to see regression tests fail (no 0 positives)
+- it makes you think about your code
+- your code will be testable (you don't want to write code then have to refactor in order to be able to test)
+
+Application of TDD
+- break down the task and list the tests we need for it to be considered done
+- write the simplest test and code to pass
+- stub any dependencies
+
+
+Definitions list:
+
+Assertion
+- to state something confidently and forcefully
+- this means stating an 'is-ness'; 'This is WRONG'. This then equates to a boolean, is it true or false result 
+- true would mean a passing test
+
+Interface
+- a part of software or hardware that facilitates communication
+
+Unit test
+- focus on one part of the software
+- unit test can be run in isolation 
+- it must not rely on the state of any previous tests
+
+Regression testing
+- running existing tests to ensure that software is working after a change
+
+Integration test
+- modules, functions etc tested as a group
+
+Stub
+- a common test helper (could be a database connector, api endpoint) providing hard coded answers
+
+Spy
+- similar to stub
+- both are cosindered as a record of information they were called with
+
+Mock
+- mimic exactly the object they are replacing, returning specific responses. More than just a stub
+
+- Performance test/Load test
+measuring how well code copes with stress
+
+Code coverage
+- measures how many times a line, statement, branch (if/else) or function etc is executed
+
+E2E (end to end) testing
+- testing a user journey through software from start to achieving the journeys goal
