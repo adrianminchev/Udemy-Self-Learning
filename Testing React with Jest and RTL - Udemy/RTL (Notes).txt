@@ -1,0 +1,43 @@
+React Testing
+
+React Testing Library
+- provides virtual DOM for tests
+
+Jest
+- finds tests
+- runs tests
+- determines whether tests pass or fail
+
+Additional clarifications:
+- rednder method - creates a virtual DOM for argument JSX
+- screen global - access virtual DOM via screen global
+- expect - jest global, starts the assertion
+
+React Testing Library helps with:
+- rendering components into the virtual DOM
+- searching virtual DOM (getByText method example)
+- Interacting with virtual DOM
+(Although it needs a test runner to find tests, run them, make assertions)
+Jest helps by:
+- comes with create-react-app
+- is also recommended by Testing Library
+
+What is Jest Watch Mode for:
+- Watches for changes in files since last commit
+- Only run tests related to these files
+- No changes? No tests, good
+
+How does Jest work:
+- global tests method has two arguments: string description, test function
+
+- What to render -> The smallest component that encompases tests (for example the App)
+
+- Do we need to pass any props, when we render the component -> Depends on the need (for example the options)
+
+- Do we need to wrap in say OrderDetailsProvider -> We need to know if the provider is used, and is it already wrapped in the component.
+
+- Where should the tests go -> Which file should they be put in? Are they unit tests or functional tests? -> This needs to be desided pre-testing
+
+- What to test -> What is the actual behavior you need to know prior testing.
+
+- Do we need to await -> Is there anything async going on in the component.
