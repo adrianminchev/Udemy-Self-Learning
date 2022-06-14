@@ -1,0 +1,10 @@
+- Use Docker compose to create multi-container applications.
+- Create and run Docker containers.
+- Build your own custom Docker images.
+- Run Docker Commands on the command line.
+- Understand best practices of Dockerfiles and Image building.
+- Understand Docker Cloud and Docker swarm.
+- Create a cluster with Docker Swarm.
+- Publish and host Docker images on Docker Cloud.
+- Set up continuous integration workflows with automatic testing on Docker Cloud and Github.
+- And more!
