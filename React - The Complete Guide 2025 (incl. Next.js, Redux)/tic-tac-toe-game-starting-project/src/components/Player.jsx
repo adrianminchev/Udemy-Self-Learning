@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Player({ initialNameValue, symbol }) {
+export default function Player({ initialNameValue, symbol, isActive }) {
   const [isEditing, setIsEditing] = useState(false);
   const [playerName, setPlayerName] = useState(initialNameValue);
 
@@ -19,14 +19,14 @@ export default function Player({ initialNameValue, symbol }) {
       <input
         type="text"
         required
-        value={playerName} 
+        value={playerName}
         onChange={handleOnChange} // Note: Listening to the change on the input and feeding the updated value back into the input is called two way binding
       />
     );
   }
 
   return (
-    <li>
+    <li className={isActive ? "active" : undefined}>
       <span className="player">
         {editablePlayerName}
         <span className="player-symbol">{symbol}</span>

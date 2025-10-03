@@ -6,17 +6,19 @@ const initialGameBoard = [
   [null, null, null],
 ];
 
-export default function GameBoard() {
-  const [gameBoard, setGameBoard] = useState(initialGameBoard);
+export default function GameBoard({ onSelectSquare, activePlayerSymbol }) {
+  // const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
-  const handleSelectSquare = (rowIndex, colIndex) => {
-    setGameBoard((previousGameBoard) => {
-      const updatedBoard = [
-        ...previousGameBoard.map((innerArray) => [...innerArray]),
-      ]; // Updating the state in a immutable way, so that we create a new object in memory, that contains the old array elements, as child elements
-      updatedBoard[rowIndex][colIndex] = "X";
-      return updatedBoard;
-    });
+  // const handleSelectSquare = (rowIndex, colIndex) => {
+  //   setGameBoard((previousGameBoard) => {
+  //     const updatedBoard = [
+  //       ...previousGameBoard.map((innerArray) => [...innerArray]),
+  //     ]; // Updating the state in a immutable way, so that we create a new object in memory, that contains the old array elements, as child elements
+  //     updatedBoard[rowIndex][colIndex] = activePlayerSymbol;
+  //     return updatedBoard;
+  //   });
+
+  //   onSelectSquare();
   };
 
   return (
