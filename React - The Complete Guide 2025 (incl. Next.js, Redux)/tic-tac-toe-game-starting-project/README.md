@@ -1,4 +1,3 @@
-tic-tac-toe-game
 Tic Tac Toe is a two-player game where X and O take turns marking a 3×3 grid, aiming to get three in a row horizontally, vertically, or diagonally.
 
 The default project instructions have been listed below.
