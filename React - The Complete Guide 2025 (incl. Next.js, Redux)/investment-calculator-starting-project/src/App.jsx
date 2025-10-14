@@ -1,37 +1,73 @@
 import { useState } from "react";
-import Header from "./components/Header.jsx";
-import Results from "./components/Results.jsx";
-import UserInput from "./components/UserInput.jsx";
+import NewProject from "./components/NewProject";
+import NoProjectSelected from "./components/NoProjectSelected";
+import Sidebar from "./components/Sidebar";
+import SelectedProject from "./components/SelectedProject";
 
 function App() {
-  const [userInput, setUserInput] = useState({
-    initialInvestment: 10000,
-    annualInvestment: 1500,
-    expectedReturn: 5,
-    duration: 10,
+  const [projectsState, setProjectState] = useState({
+    selectedProjectId: undefined,
+    projects: [],
   });
-  const isInputValid = userInput.duration >= 1;
 
-  const handleChange = (inputIdentifier, newValue) => {
-    setUserInput((prevUserInput) => {
+  function handleStartAddingProject() {
+    setProjectState((prevState) => {
+      return { ...prevState, selectedProjectId: null };
+    });
+  }
+
+  function handleAddProject(projectData) {
+    setProjectState((prevState) => {
+      const projectId = Math.random();
+      const newProject = {
+        ...projectData,
+        id: projectId,
+      };
+
       return {
-        ...prevUserInput,
-        [inputIdentifier]: Number(newValue),
+        ...prevState,
+        selectedProjectId: undefined,
+        projects: [...prevState.projects, newProject],
       };
     });
-  };
+  }
+
+  function handleCancelAddProject() {
+    setProjectState((prevState) => {
+      return { ...prevState, selectedProjectId: undefined };
+    });
+  }
+
+  function handleSelectProject(id) {
+    setProjectState((prevState) => {
+      return { ...prevState, selectedProjectId: id };
+    });
+  }
+  const selectedProject = projectsState.projects.find(
+    (project) => project.id === projectsState.selectedProjectId
+  );
+
+  let content = <SelectedProject project={selectedProject} />;
+
+  if (projectsState.selectedProjectId === null) {
+    content = (
+      <NewProject onAdd={handleAddProject} onCancel={handleCancelAddProject} />
+    );
+  } else if (projectsState.selectedProjectId === undefined) {
+    content = (
+      <NoProjectSelected onStartAddProject={handleStartAddingProject} />
+    );
+  }
 
   return (
-    <>
-      <Header />
-      <UserInput userInput={userInput} onChangeInput={handleChange} />
-      {!isInputValid && (
-        <p className="center">
-          Please insert a duration, that is greater than zero!
-        </p>
-      )}
-      {isInputValid && <Results userInput={userInput} />}
-    </>
+    <main className="h-screen my-8 flex gap-8 ">
+      <Sidebar
+        onStartAddProject={handleStartAddingProject}
+        projects={projectsState.projects}
+        onSelectProject={handleSelectProject}
+      />
+      {content}
+    </main>
   );
 }
 
