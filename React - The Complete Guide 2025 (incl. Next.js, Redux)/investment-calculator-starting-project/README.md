@@ -1,5 +1,9 @@
 Investment Calculator web app that lets users calculate future investment values using components, state, and dynamic content.
 
+To start the project, simply run the npm install command to install all the project packages and dependencies.
+
+After the installation is complete, start the application by executing npm run dev to run the project on the configured port — http://localhost:5173/.
+
 The default project instructions have been listed below. Getting Started with Create React App This project was bootstrapped with Create React App.
 
 Available Scripts In the project directory, you can run:
