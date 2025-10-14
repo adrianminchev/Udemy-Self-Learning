@@ -1,6 +1,7 @@
 Tic Tac Toe is a two-player game where X and O take turns marking a 3×3 grid, aiming to get three in a row horizontally, vertically, or diagonally.
+To start the project, simply run the npm install command to install all the project packages and dependencies.
+After the installation is complete, start the application by executing npm run dev to run the project on the configured port — http://localhost:5173/.
 
-The default project instructions have been listed below.
 Getting Started with Create React App
 This project was bootstrapped with Create React App.
 
