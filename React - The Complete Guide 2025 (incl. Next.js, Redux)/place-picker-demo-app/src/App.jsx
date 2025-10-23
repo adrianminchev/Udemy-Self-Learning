@@ -1,10 +1,10 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import Places from "./components/Places.jsx";
-import { AVAILABLE_PLACES } from "./data.js";
 import Modal from "./components/Modal.jsx";
 import DeleteConfirmation from "./components/DeleteConfirmation.jsx";
-import logoImg from "./assets/logo.png";
+import { AVAILABLE_PLACES } from "./data.js";
 import { sortPlacesByDistance } from "./loc.js";
+import logoImg from "./assets/logo.png";
 
 const storedIds = JSON.parse(localStorage.getItem("selectedPlaces")) || [];
 const storedPlaces = storedIds.map((id) =>
