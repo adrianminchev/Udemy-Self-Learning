@@ -60,13 +60,32 @@ export default function Quiz() {
         />
         <h2>{QUESTIONS_DATA[activeQuestionIndex].text}</h2>
         <ul id="answers">
-          {shuffledAnswers.map((answer) => (
-            <li key={answer} className="answer">
-              <button onClick={() => handleSelectAnswer(answer)}>
-                {answer}
-              </button>
-            </li>
-          ))}
+          {shuffledAnswers.map((answer) => {
+            let cssClass = "";
+            const isSelected = userAnswers[userAnswers.length - 1] === answer;
+
+            if (cssClass === "answered" && isSelected) {
+              cssClass = "selected";
+            }
+
+            if (
+              (answerState === "correct" || answerState === "wrong") &&
+              isSelected
+            ) {
+              cssClass = answerState;
+            }
+
+            return (
+              <li key={answer} className="answer">
+                <button
+                  onClick={() => handleSelectAnswer(answer)}
+                  className={cssClass}
+                >
+                  {answer}
+                </button>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>
