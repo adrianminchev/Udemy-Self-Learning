@@ -1,26 +1,28 @@
+import { useState } from "react";
 import QuestionTimer from "./QuestionTimer.jsx";
 import Answers from "./Answers.jsx";
-import { useState } from "react";
-import questions from "../questions.js";
+import QUESTIONS_DATA from "../questions.js";
+
+const SELECTED_ANSWER_TIMER = 1000;
+const CORRECT_ANSWER_TIMER = 2000;
 
 export default function Question({
+  questionIndex,
   onSelectAnswer,
   onSkipAnswer,
-  questionIndex,
 }) {
   const [answer, setAnswer] = useState({
     selectedAnswer: "",
     isCorrect: null,
   });
-
   let timer = 10000;
 
   if (answer.selectedAnswer) {
-    timer = 1000;
+    timer = SELECTED_ANSWER_TIMER;
   }
 
   if (answer.isCorrect !== null) {
-    timer = 2000;
+    timer = CORRECT_ANSWER_TIMER;
   }
 
   function handleSelectAnswer(answer) {
@@ -32,16 +34,17 @@ export default function Question({
     setTimeout(() => {
       setAnswer({
         selectedAnswer: answer,
-        isCorrect: questions[questionIndex].answers[0] === answer,
+        isCorrect: QUESTIONS_DATA[questionIndex].answers[0] === answer,
       });
 
       setTimeout(() => {
         onSelectAnswer(answer);
-      }, 2000);
-    }, 1000);
+      }, CORRECT_ANSWER_TIMER);
+    }, SELECTED_ANSWER_TIMER);
   }
 
   let answerState = "";
+
   if (answer.selectedAnswer && answer.isCorrect !== null) {
     answerState = answer.isCorrect ? "correct" : "wrong";
   } else if (answer.selectedAnswer) {
@@ -52,13 +55,13 @@ export default function Question({
     <div id="question">
       <QuestionTimer
         key={timer}
-        timeout={timer}
         onTimeout={answer.selectedAnswer === "" ? onSkipAnswer : null}
+        timeout={timer}
         mode={answerState}
       />
-      <h2>{questions[questionIndex].text}</h2>
+      <h2>{QUESTIONS_DATA[questionIndex].text}</h2>
       <Answers
-        answers={questions[questionIndex].answers}
+        answers={QUESTIONS_DATA[questionIndex].answers}
         selectedAnswer={answer.selectedAnswer}
         answerState={answerState}
         onSelect={handleSelectAnswer}
