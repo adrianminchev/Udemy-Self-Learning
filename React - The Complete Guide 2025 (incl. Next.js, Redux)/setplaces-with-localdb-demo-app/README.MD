@@ -8,8 +8,6 @@ It can load available places, add and store them locally, reload to refetch stor
 ## Getting Started
 
 ### 1. Install all project dependencies
-
-```bash
 # In the main app location
 npm install
 
@@ -21,15 +19,12 @@ npm install
 npm run dev
 
 ### 2. Start the application
-
-```bash
 # Start the backend server
 cd backend
 node app.js
 
 ### 3. Access the project
-
-```bash
 Once both servers are running, open your browser at:
 http://localhost:5173/
+
 
