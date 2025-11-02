@@ -21,10 +21,15 @@ npm install
 npm run dev
 
 ### 2. Start the application
+
+```bash
 # Start the backend server
 cd backend
 node app.js
 
 ### 3. Access the project
+
+```bash
 Once both servers are running, open your browser at:
 http://localhost:5173/
+
