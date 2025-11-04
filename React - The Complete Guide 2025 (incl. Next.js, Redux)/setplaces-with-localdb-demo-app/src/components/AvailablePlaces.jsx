@@ -1,40 +1,14 @@
-import { useEffect, useState } from "react";
 import Places from "./Places.jsx";
 import ErrorConfirmation from "./ErrorConfirmation.jsx";
 import { fetchAvailablePlaces } from "../https.js";
+import { useFetch } from "../hooks/useFetch.js";
 
 export default function AvailablePlaces({ onSelectPlace }) {
-  const [availablePlaces, setAvailablePlaces] = useState([]);
-  const [isFetching, setIsFetching] = useState([]);
-  const [setError, isSetError] = useState();
-
-  useEffect(() => {
-    async function fetchPlaces() {
-      setIsFetching(true);
-
-      try {
-        const places = await fetchAvailablePlaces();
-
-        setAvailablePlaces(places);
-      } catch (err) {
-        isSetError({
-          message:
-            err.message || "Could not fetch places, please try again later!",
-        });
-      }
-
-      setIsFetching(false);
-    }
-    // fetch("http://localhost:3000/places")
-    //   .then((response) => {
-    //     return response.json();
-    //   })
-    //   .then((resData) => {
-    //     setAvailablePlaces(resData.places);
-    //   });
-
-    fetchPlaces();
-  }, []);
+  const {
+    isFetching,
+    fetchedData: availablePlaces,
+    setError,
+  } = useFetch(fetchAvailablePlaces, []);
 
   if (setError) {
     return (
