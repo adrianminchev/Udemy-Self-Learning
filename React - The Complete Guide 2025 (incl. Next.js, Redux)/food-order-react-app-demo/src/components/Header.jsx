@@ -1,7 +1,21 @@
+import { useContext } from "react";
 import logoImg from "../assets/logo.jpg";
-import ConfigurableButton from "./UI/ConfigurableButton.jsx";
+import ConfigurableButton from "./common/ConfigurableButton.jsx";
+import CartContext from "../store/CartContext.jsx";
+import UserProgressContext from "../store/UserProgressContext.jsx";
 
 export default function Header() {
+  const cartCtx = useContext(CartContext);
+  const userProgressCtx = useContext(UserProgressContext);
+
+  const totalCartItems = cartCtx.items.reduce((totalNumberOfItems, item) => {
+    return totalNumberOfItems + item.quantity;
+  }, 0);
+
+  function handleShowCart() {
+    userProgressCtx.showCart();
+  }
+
   return (
     <header id="main-header">
       <div id="title">
@@ -9,7 +23,9 @@ export default function Header() {
         <h1>React Food Order</h1>
       </div>
       <nav>
-        <ConfigurableButton textOnly={true}>Cart (0)</ConfigurableButton>
+        <ConfigurableButton textOnly={true} onClick={handleShowCart}>
+          Cart ({totalCartItems})
+        </ConfigurableButton>
       </nav>
     </header>
   );
