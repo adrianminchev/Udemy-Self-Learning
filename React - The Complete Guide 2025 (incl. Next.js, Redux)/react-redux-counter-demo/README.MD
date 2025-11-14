@@ -12,6 +12,6 @@ npm install
 # Start the front-end server
 npm start
 
-### 2. Access the project
+### 3. Access the project
 Once the servers is running, open your browser at:
 http://localhost:3000/
