@@ -12,7 +12,7 @@ const CartButton = () => {
 
   return (
     <button className={classes.button} onClick={toggleCartHandler}>
-      <span>My Cart</span>
+      <span>Shopping Cart</span>
       <span className={classes.badge}>{cartQuantity}</span>
     </button>
   );
