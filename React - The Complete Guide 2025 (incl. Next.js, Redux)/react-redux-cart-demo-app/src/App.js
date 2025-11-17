@@ -7,6 +7,9 @@ import { uiActions } from "./components/store/ui-slice";
 import Notification from "./components/UI/Notification";
 import { fetchCartData } from "./components/store/cart-actions";
 
+export const FIREBASE_URL =
+  "https://redux-cart-my-books-default-rtdb.europe-west1.firebasedatabase.app/cart.json";
+
 let isInitial = true;
 
 function App() {
@@ -30,16 +33,13 @@ function App() {
           })
         );
 
-        const response = await fetch(
-          "https://redux-cart-my-books-default-rtdb.europe-west1.firebasedatabase.app/cart.json",
-          {
-            method: "PUT",
-            body: JSON.stringify({
-              items: cart.items,
-              totalQuantity: cart.totalQuantity,
-            }),
-          }
-        );
+        const response = await fetch(FIREBASE_URL, {
+          method: "PUT",
+          body: JSON.stringify({
+            items: cart.items,
+            totalQuantity: cart.totalQuantity,
+          }),
+        });
 
         if (!response.ok) {
           throw new Error("Sending cart data failed");

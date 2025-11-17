@@ -1,12 +1,11 @@
+import { FIREBASE_URL } from "../../App";
 import { cartActions } from "./cart-slice";
 import { uiActions } from "./ui-slice";
 
 export const fetchCartData = () => {
   return async (dispatch) => {
     const fetchData = async () => {
-      const response = await fetch(
-        "https://redux-cart-my-books-default-rtdb.europe-west1.firebasedatabase.app/cart.json"
-      );
+      const response = await fetch(FIREBASE_URL);
 
       if (!response.ok) {
         throw new Error("Could not fetch cart data!");
