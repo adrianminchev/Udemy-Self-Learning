@@ -17,7 +17,7 @@ export async function eventsLoader() {
       JSON.stringify({ message: "Could not fetch events data." }),
       { status: 500 }
     );
-  } else {
-    return response;
   }
+
+  return response.json();
 }
