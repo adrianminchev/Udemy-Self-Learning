@@ -1,5 +1,4 @@
 import { Link, Outlet } from 'react-router-dom';
-
 import Header from '../Header.jsx';
 import EventsIntroSection from './EventsIntroSection.jsx';
 import FindEventSection from './FindEventSection.jsx';
