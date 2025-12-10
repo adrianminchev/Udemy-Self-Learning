@@ -3,8 +3,23 @@ import { Suspense } from "react";
 import classes from "./page.module.css";
 import MealsGrid from "./meals-grid";
 import { getMeals } from "../lib/meals";
+import { notFound } from "next/navigation";
 
-async function Meals(params) {
+// export const metadata = {
+// // Static metadata example
+//   title: "All Meals",
+//   description:
+//     "Food related demo application that lists all of the featured meals, shared by the food-loving community.",
+// };
+export async function generateMetaData({ params }) {
+  // Dynamic metadata example
+  const meal = getMeals(params.mealSlug);
+  if (!meal) {
+    notFound();
+  }
+}
+
+async function Meals() {
   const meals = await getMeals();
   return <MealsGrid meals={meals} />;
 }
