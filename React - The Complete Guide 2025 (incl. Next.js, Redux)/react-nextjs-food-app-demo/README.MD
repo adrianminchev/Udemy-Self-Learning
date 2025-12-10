@@ -1,6 +1,6 @@
 # NextJS Food Demo App
 
-This Food App is built with Next.js 15 (Pages Router) and React 19, allowing users to browse meals stored in a SQLite database via better-sqlite3, view detailed meal pages, and add new meals using text inputs, 
+This Food App is built with Next.js 15 (App Router) and React 19, allowing users to browse meals stored in a SQLite database via better-sqlite3, view detailed meal pages, and add new meals using text inputs, 
 automatic slug generation with slugify, and secure image uploads. User input is sanitized using xss to ensure safety, and the architecture stays lightweight with minimal dependencies. 
 ESLint with eslint-config-next is used to maintain clean, consistent code throughout the project.
 
