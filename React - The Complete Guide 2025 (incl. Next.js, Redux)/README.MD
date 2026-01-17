@@ -1,7 +1,7 @@
 # React – The Complete Guide (incl. Next.js, Redux)
 
 ## INTRO
-This repository documents my completion of the **“React – The Complete Guide (incl. Redux)”** course.  
+This repository documents my completion of the **“React – The Complete Guide  (incl. Next.js, Redux)”** course.  
 The course provides a comprehensive, hands-on introduction to building modern, scalable web applications with **React.js** and related technologies.
 
 ---
